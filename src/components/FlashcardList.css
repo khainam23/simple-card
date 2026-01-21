@@ -1,0 +1,245 @@
+/* Flashcard List Styles */
+
+.flashcard-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-xl);
+    gap: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.list-header h2 {
+    margin: 0;
+    font-size: var(--font-size-3xl);
+}
+
+.list-actions {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+}
+
+.view-toggle {
+    display: flex;
+    gap: var(--space-xs);
+    background: var(--color-bg-tertiary);
+    padding: var(--space-xs);
+    border-radius: var(--radius-md);
+}
+
+.empty-state {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-lg);
+    padding: var(--space-3xl);
+    text-align: center;
+    color: var(--color-text-secondary);
+}
+
+.cards-container {
+    display: grid;
+    gap: var(--space-lg);
+}
+
+.cards-container.list {
+    grid-template-columns: 1fr;
+}
+
+.cards-container.cards {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.flashcard-item {
+    position: relative;
+    transition: all var(--transition-base);
+}
+
+.flashcard-item:hover {
+    transform: translateY(-4px);
+}
+
+/* Card View - Flip Animation */
+.flashcard-flip {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.flashcard-front,
+.flashcard-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform var(--transition-slow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl);
+    border-radius: var(--radius-lg);
+    background: var(--gradient-primary);
+}
+
+.flashcard-front {
+    transform: rotateY(0deg);
+}
+
+.flashcard-back {
+    transform: rotateY(180deg);
+    background: var(--gradient-accent);
+}
+
+.flashcard-flip.flipped .flashcard-front {
+    transform: rotateY(-180deg);
+}
+
+.flashcard-flip.flipped .flashcard-back {
+    transform: rotateY(0deg);
+}
+
+.flashcard-label {
+    font-size: var(--font-size-sm);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-md);
+}
+
+.flashcard-content {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    word-break: break-word;
+    max-height: 120px;
+    overflow-y: auto;
+    width: 100%;
+    padding: 0 var(--space-sm);
+}
+
+.flip-hint {
+    position: absolute;
+    bottom: var(--space-md);
+    font-size: var(--font-size-xs);
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.more-fields-hint {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-size: var(--font-size-xs);
+    background: rgba(0, 0, 0, 0.2);
+    padding: 2px 8px;
+    border-radius: var(--radius-full);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* List View */
+.flashcard-fields {
+    padding: var(--space-md) 0;
+}
+
+.field-item {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.field-item:last-child {
+    border-bottom: none;
+}
+
+.field-item strong {
+    color: var(--color-primary);
+    margin-right: var(--space-sm);
+}
+
+.flashcard-actions {
+    display: flex;
+    gap: var(--space-xs);
+    justify-content: flex-end;
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+    margin-top: var(--space-md);
+}
+
+.modal-large {
+    max-width: 700px;
+}
+
+.flashcard-item.reviewed {
+    opacity: 0.7;
+    filter: grayscale(0.5);
+    border-color: var(--color-success);
+}
+
+.flashcard-item.reviewed:hover {
+    opacity: 0.9;
+    filter: grayscale(0);
+}
+
+.reviewed-badge {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--color-success);
+    color: white;
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    z-index: 10;
+    box-shadow: var(--shadow-sm);
+}
+
+.text-success {
+    color: var(--color-success);
+}
+
+.text-warning {
+    color: var(--color-warning);
+}
+
+.flashcard-actions .btn span {
+    font-size: var(--font-size-xs);
+    margin-left: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .list-header {
+        flex-direction: column;
+    }
+
+    .list-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .cards-container.cards {
+        grid-template-columns: 1fr;
+    }
+
+    .flashcard-flip {
+        height: 200px;
+    }
+}
