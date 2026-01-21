@@ -64,6 +64,7 @@ const LandingPage = () => {
             <p className="hero-description">
               Ứng dụng flashcard hiện đại, linh hoạt và hoàn toàn miễn phí.
               Tạo, quản lý và học tập mọi lúc mọi nơi với dữ liệu được lưu trữ vĩnh viễn trên trình duyệt.
+              Tác giả: <a className="text-primary" href="https://github.com/khainam23" target="_blank" rel="noopener noreferrer">khainam23</a>
             </p>
             
             <div className="hero-actions">
@@ -186,7 +187,7 @@ const LandingPage = () => {
               Ứng dụng flashcard hiện đại, được xây dựng với React & IndexedDB
             </p>
             <p className="footer-copyright">
-              © 2026 FlashCard App. Made with ❤️ for learners.
+              © FlashCard App. Made with khainam23 ❤️ for learners.
             </p>
           </div>
         </div>
