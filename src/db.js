@@ -308,8 +308,13 @@ export const dataService = {
 
   // Initialize with sample data
   async initializeSampleData() {
+    if (localStorage.getItem('flashcard_initialized')) return;
+
     const count = await db.flashcards.count();
-    if (count > 0) return; // Already has data
+    if (count > 0) {
+      localStorage.setItem('flashcard_initialized', 'true');
+      return;
+    }
 
     // Create default templates
     const basicTemplate = await templateService.create({
@@ -344,6 +349,8 @@ export const dataService = {
         Answer: 'IndexedDB is a low-level API for client-side storage of significant amounts of structured data.'
       }
     });
+
+    localStorage.setItem('flashcard_initialized', 'true');
   }
 };
 
