@@ -5,6 +5,7 @@ import AppLayout from './components/AppLayout';
 import FlashcardPage from './components/FlashcardPage';
 import TemplatePage from './components/TemplatePage';
 import ExportPage from './components/ExportPage';
+import RSVPPage from './components/RSVPPage';
 import './index.css';
 
 function AppContent() {
@@ -35,6 +36,7 @@ function AppContent() {
       <Route path="/app" element={<AppLayout />}>
         <Route index element={<Navigate to="/app/flashcards" replace />} />
         <Route path="flashcards" element={<FlashcardPage />} />
+        <Route path="rsvp" element={<RSVPPage />} />
         <Route path="templates" element={<TemplatePage />} />
         <Route path="export" element={<ExportPage />} />
       </Route>

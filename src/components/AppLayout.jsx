@@ -9,7 +9,8 @@ import {
   Home,
   Search,
   Menu,
-  X
+  X,
+  Zap
 } from 'lucide-react';
 import Sidebar from './Sidebar';
 import './MainApp.css';
@@ -23,6 +24,7 @@ const AppLayout = () => {
 
   const tabs = [
     { id: 'flashcards', label: 'Flashcards', path: '/app/flashcards', icon: <FilePlus size={18} /> },
+    { id: 'rsvp', label: 'RSVP Speed Reading', path: '/app/rsvp', icon: <Zap size={18} /> },
     { id: 'templates', label: 'Templates', path: '/app/templates', icon: <LayoutTemplate size={18} /> },
     { id: 'export', label: 'Export/Import', path: '/app/export', icon: <Download size={18} /> },
   ];
