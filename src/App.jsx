@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { AppProvider, useApp } from './AppContext';
 import LandingPage from './components/LandingPage';
 import AppLayout from './components/AppLayout';
@@ -52,6 +53,7 @@ function App() {
     <BrowserRouter>
       <AppProvider>
         <AppContent />
+        <SpeedInsights />
       </AppProvider>
     </BrowserRouter>
   );
